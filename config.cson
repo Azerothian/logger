@@ -1,0 +1,13 @@
+{
+  express:
+    staticPath: "build/www/"
+    session:
+      secret: "keyboard cat"
+      key: "kekekeke"
+      cookie:
+        maxAge: 10000
+        secure: false
+    port: 2212
+  logger:
+    providers: ['elasticsearch']
+}

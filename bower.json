@@ -1,0 +1,21 @@
+{
+  "name": "logger",
+  "version": "0.0.0",
+  "authors": [
+    "Azerothian <matthew.mckenzie@illisian.com.au>"
+  ],
+  "license": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "react": "~0.10.0",
+    "bootstrap-social": "~4.5.0",
+    "underscore": "~1.6.0"
+  }
+}
