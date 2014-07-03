@@ -45,7 +45,7 @@ class Server extends injector
   init: () =>
     staticPath = @config.getPath @config.express.staticPath
 
-    @expressApp.use morgan 'dev'
+    #@expressApp.use morgan 'dev'
     @expressApp.use bodyParser.json()
     @expressApp.use bodyParser.urlencoded { extended: true }
 
@@ -82,8 +82,16 @@ class Server extends injector
         socket.on "/#{e}", @socketHook(socket, e, events[e])
 
   socketHook: (socket, eventName, func) =>
-    return (application, component, message) =>
-      return func({ id: "socket", socket: socket }, { application: application, component: component, message: message }).then () =>
+    return (timestamp, application, component, message) =>
+      return func({
+        id: "socket",
+        socket: socket
+      }, {
+        timestamp: timestamp,
+        application: application,
+        component: component,
+        message: message
+      }).then () =>
         socket.emit eventName, arguments
       , () =>
         @log.info "socket hook rejected - will not emit a response"

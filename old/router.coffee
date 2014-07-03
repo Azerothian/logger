@@ -30,7 +30,7 @@ class Router
     for logLevel of winston.config.syslog.levels
       socket.on "log:#{logLevel}", @apps["global"].logSocketHook logLevel, socket
 
-
+##
 defaultAppSetting = {
   transports: [
     new winston.transports.Console {

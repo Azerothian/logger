@@ -7,7 +7,10 @@
       cookie:
         maxAge: 10000
         secure: false
-    port: 2212
+    port: 2213
+
+  elasticsearch:
+    host: "172.18.5.60:9200"
   logger:
     providers: ['elasticsearch']
 }

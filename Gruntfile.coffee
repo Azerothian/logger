@@ -52,11 +52,15 @@ module.exports = (grunt) ->
         options:
           spawn: false
     shell:
-      "server":
+      "debug":
         options:
           stdout: true
         command: 'node-debug build/app.js'
-
+      "run":
+        options:
+          stdout: true
+        command: 'node build/app.js'
+        
     notify:
       complete:
         options:
@@ -90,4 +94,5 @@ module.exports = (grunt) ->
     'browserify:client'
     'notify:complete'
   ]
-  grunt.registerTask 'run-express', 'Runs instance', ["express:dev:stop", 'build', "express:dev"]
+  grunt.registerTask 'debug', 'start debug', ['build', "shell:debug"]
+  grunt.registerTask 'run', 'start', ['build', "shell:run"]
