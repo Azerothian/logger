@@ -65,11 +65,9 @@ class Logger extends injector
             "@timestamp": message.timestamp
             "@sys_timestamp": new Date()
             source: message.component
-
+            message: message.message
         }
-        for msg of message
-          m[msg] = message[msg]
-
+        
         @elastic.index(m).then () ->
           console.log "elastic index resolve", arguments
       , (err) ->
